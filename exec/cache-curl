@@ -13,7 +13,7 @@ function main {
   fi
 
   if curl -o "${BASEBOX_CACHE}/curl/$nm_file.$$" "$@" "url_file"; then
-    mv -f "${BASEBOX_CACHE}/curl/$nm_file" "${BASEBOX_CACHE}/curl/$nm_file"
+    mv -f "${BASEBOX_CACHE}/curl/$nm_file.$$" "${BASEBOX_CACHE}/curl/$nm_file"
   else
     return $?
   fi
