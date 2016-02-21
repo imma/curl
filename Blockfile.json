@@ -1,0 +1,6 @@
+{
+  "require": [
+    "cache",
+    "pkgsrc"
+  ]
+}
