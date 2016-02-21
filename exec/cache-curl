@@ -3,7 +3,7 @@
 function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
-  
+
   local nm_file="$1"; shift
   local url_file="$1"; shift
 
@@ -12,7 +12,7 @@ function main {
     return 0
   fi
 
-  if curl -o "${BASEBOX_CACHE}/curl/$nm_file.$$" "$@" "url_file"; then
+  if curl -o "${BASEBOX_CACHE}/curl/$nm_file.$$" "$@" "$url_file"; then
     mv -f "${BASEBOX_CACHE}/curl/$nm_file.$$" "${BASEBOX_CACHE}/curl/$nm_file"
   else
     return $?
