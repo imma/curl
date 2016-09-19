@@ -7,13 +7,17 @@ function main {
   local nm_file="$1"; shift
   local url_file="$1"; shift
 
-  mkdir -p "${BASEBOX_CACHE}/curl"
-  if [[ -f "${BASEBOX_CACHE}/curl/$nm_file" ]]; then
+  local pth_curl="${BASEBOX_CACHE}/curl/$(uname -s)"
+  local pth_curl="${BASEBOX_CACHE}/curl/tmp"
+
+  mkdir -p "$pth_curl" "$tmp_curl"
+
+  if [[ -f "$pth_curl/$nm_file" ]]; then
     return 0
   fi
 
-  if curl -sSL -o "${BASEBOX_CACHE}/curl/$nm_file.$$" "$@" "$url_file"; then
-    mv -f "${BASEBOX_CACHE}/curl/$nm_file.$$" "${BASEBOX_CACHE}/curl/$nm_file"
+  if curl -sSL -o "$tmp_curl/$nm_file.$$" "$@" "$url_file"; then
+    mv -f "$tmp_curl/$nm_file.$$" "$pth_curl/$nm_file"
   else
     return $?
   fi
