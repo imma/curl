@@ -8,7 +8,7 @@ function main {
   local url_file="$1"; shift
 
   local pth_curl="${BASEBOX_CACHE}/curl/$(uname -s)"
-  local pth_curl="${BASEBOX_CACHE}/curl/tmp"
+  local tmp_curl="${BASEBOX_CACHE}/curl/tmp"
 
   mkdir -p "$pth_curl" "$tmp_curl"
 
