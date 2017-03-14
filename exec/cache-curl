@@ -13,7 +13,7 @@ function main {
   mkdir -p "$pth_curl" "$tmp_curl"
 
   if [[ -f "$pth_curl/$nm_file" ]]; then
-    if [[ ! -s "$pth_curl/$nm_file" ]]; then
+    if [[ -s "$pth_curl/$nm_file" ]]; then
       return 0
     fi
   fi
