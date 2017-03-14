@@ -13,7 +13,9 @@ function main {
   mkdir -p "$pth_curl" "$tmp_curl"
 
   if [[ -f "$pth_curl/$nm_file" ]]; then
-    return 0
+    if [[ ! -s "$pth_curl/$nm_file" ]]; then
+      return 0
+    fi
   fi
 
   if curl -sSL -o "$tmp_curl/$nm_file.$$" "$@" "$url_file"; then
