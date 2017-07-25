@@ -7,8 +7,8 @@ function main {
   local nm_file="$1"; shift
   local url_file="$1"; shift
 
-  local pth_curl="/data/cache/curl"
-  local tmp_curl="/data/cache/curl"
+  local pth_curl="${CACHE_DIR}/curl"
+  local tmp_curl="${CACHE_DIR}/curl"
 
   mkdir -p "$pth_curl" "$tmp_curl"
 
